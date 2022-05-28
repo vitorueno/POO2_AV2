@@ -1,0 +1,71 @@
+@startuml
+
+title Diagrama - E-comerce
+
+class Cliente {
+  id: int
+  nome: str
+  email: str
+  data_nascimento: date
+  Endereco: Endereco
+}
+
+class Endereco {
+  id: int
+  rua: str
+  bairro: str
+  cidade: str
+  numero: str
+}
+
+
+class Produto {
+  id: int
+  nome: str
+  descricao: str
+  preco: float
+  peso: float
+  unidade_medida: str
+  estoque: int
+}
+
+class ProdutoCarrinho {
+  id: int
+  prod: Produto
+  carrinho: Carrinho
+  quant: int
+}
+
+class MetodoPagamento {
+  id: int
+  nome: str
+  desc: str
+  
+}
+
+
+class Carrinho {
+  id: int 
+  cliente: Cliente
+  valor_total: float
+  
+}
+
+
+class Venda {
+  id: int 
+  data: dateTime
+  carrinho: Carrinho
+  metodo_pagamento: MetodoPagamento
+}
+
+
+Cliente *-- Endereco
+Produto *-- ProdutoCarrinho
+Carrinho --* Cliente
+Venda --* Carrinho
+Carrinho *-- ProdutoCarrinho
+Venda --* MetodoPagamento
+
+
+@enduml
