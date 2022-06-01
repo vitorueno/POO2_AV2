@@ -27,3 +27,6 @@ class MetodoPagamento(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(254))
     descricao = db.Column(db.String(254))
+
+    def __str__(self):
+        return f'Método de Pagamento: {self.nome} - {self.descricao}'

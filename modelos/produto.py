@@ -35,3 +35,12 @@ class Produto(db.Model):
     peso = db.Column(db.Float)
     unidade_de_medida = db.Column(db.String(254))
     estoque = db.Column(db.Integer)
+
+    def __str__(self):
+        return f'''
+            Nome do produto: {self.nome}
+            Descrição: {self.descricao}
+            Preço: R$ {self.preco:.2f}
+            Peso: {self.peso} {self.unidade_de_medida}
+            Estoque: {self.estoque}
+        '''

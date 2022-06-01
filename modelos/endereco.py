@@ -32,6 +32,9 @@ class Endereco(db.Model):
     cidade = db.Column(db.String(254))
     numero = db.Column(db.String(254))
 
+    def __str__(self):
+        return f'{self.rua}, {self.numero} - {self.bairro}, {self.cidade}'
+
 
 if __name__ == '__main__':
 

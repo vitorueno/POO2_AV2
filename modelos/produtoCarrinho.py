@@ -41,3 +41,9 @@ class ProdutoCarrinho(db.Model):
     carrinho_id = db.Column(
         db.Integer, db.ForeignKey(Carrinho.id), nullable=False)
     carrinho = db.relationship("Carrinho")
+
+    def __str__(self):
+        return f'''
+            {str(self.produto)}
+            Quantidade: {self.quant}
+        '''

@@ -7,6 +7,7 @@ if __name__ == "__main__":
 
 from modelos.carrinho import Carrinho
 from modelos.metodoPagamento import MetodoPagamento
+from modelos.produtoCarrinho import ProdutoCarrinho
 
 from config import *
 
@@ -42,3 +43,29 @@ class Venda(db.Model):
     metodoPagamento_id = db.Column(
         db.Integer, db.ForeignKey(MetodoPagamento.id), nullable=False)
     metodoPagamento = db.relationship("MetodoPagamento")
+
+
+    def __str__(self):
+        itens = db.session.query(ProdutoCarrinho).filter_by(carrinho_id = self.carrinho.id)
+
+        retorno =  f''' 
+            Data da compra: {self.data}
+            Cliente <
+                {str(self.carrinho.cliente)}
+            >
+
+            Itens [ ''' 
+
+        for i in itens:  
+            retorno += str(i) 
+
+        retorno += f'''
+            ]
+
+            Valor Total: {self.carrinho.valor_total}
+            '''
+        return retorno
+
+        
+            
+        

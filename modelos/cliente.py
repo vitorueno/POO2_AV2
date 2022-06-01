@@ -38,6 +38,13 @@ class Cliente (db.Model):
         db.Integer, db.ForeignKey(Endereco.id), nullable=False)
     endereco = db.relationship("Endereco")
 
+    def __str__(self):
+        return f'''
+            Nome: {self.nome}
+            E-mail: {self.email}
+            Data de Nascimento: {self.data_nascimento}
+            Endereço: {str(self.endereco)}
+        '''
 
 if __name__ == "__main__":
     pass

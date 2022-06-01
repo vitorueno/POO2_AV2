@@ -34,3 +34,12 @@ class Carrinho(db.Model):
     cliente_id = db.Column(
         db.Integer, db.ForeignKey(Cliente.id), nullable=False)
     cliente = db.relationship("Cliente")
+
+
+    def __str__(self):
+        return f''' 
+            Cliente: [
+                {str(self.cliente)}
+            ]
+            Valor Total: R$ {self.valor_total:.2f}
+        '''
