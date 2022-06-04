@@ -1,6 +1,13 @@
+if __name__ == "__main__":
+    import os
+    import sys
+    currentdir = os.path.dirname(os.path.realpath(__file__))
+    parentdir = os.path.dirname(currentdir)
+    sys.path.append(parentdir)
+
 from modelos import Endereco, Cliente, Carrinho, Produto, ProdutoCarrinho, MetodoPagamento, Venda
-from config import *
-from criar_tabelas import *
+from configs.config import *
+from configs.criar_tabelas import *
 
 
 # obs.: quando uma compra é realizada, algumas informações precisam ser atualizadas (ex.: estoque do produto)

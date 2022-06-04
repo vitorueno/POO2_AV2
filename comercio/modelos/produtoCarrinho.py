@@ -8,7 +8,7 @@ if __name__ == "__main__":
 from modelos.produto import Produto
 from modelos.carrinho import Carrinho
 
-from config import *
+from configs.config import *
 
 
 class ProdutoCarrinho(db.Model):

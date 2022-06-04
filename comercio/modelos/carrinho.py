@@ -6,7 +6,7 @@ if __name__ == "__main__":
     sys.path.append(parentdir)
 
 from modelos.cliente import Cliente
-from config import *
+from configs.config import *
 
 
 class Carrinho(db.Model):

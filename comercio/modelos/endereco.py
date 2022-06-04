@@ -5,7 +5,7 @@ if __name__ == '__main__':
     parentdir = os.path.dirname(currentdir)
     sys.path.append(parentdir)
 
-from config import *
+from configs.config import *
 
 
 class Endereco(db.Model):

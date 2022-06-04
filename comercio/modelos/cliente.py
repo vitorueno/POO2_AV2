@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
 from modelos.endereco import Endereco
 
-from config import *
+from configs.config import *
 
 
 class Cliente (db.Model):

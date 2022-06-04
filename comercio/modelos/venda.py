@@ -9,7 +9,7 @@ from modelos.carrinho import Carrinho
 from modelos.metodoPagamento import MetodoPagamento
 from modelos.produtoCarrinho import ProdutoCarrinho
 
-from config import *
+from configs.config import *
 
 
 class Venda(db.Model):
