@@ -1,48 +1,41 @@
-from modelos import carrinho as car 
-from modelos import cliente as cli
-from modelos import endereco as e 
-from modelos import produto as prod 
-from modelos import produtoCarrinho as prodc 
-from modelos import venda as v 
-from modelos import metodoPagamento as mp  
-
-
+from modelos import Endereco, Cliente, Carrinho, Produto, ProdutoCarrinho, MetodoPagamento, Venda
 from config import *
 from criar_tabelas import *
+
 
 # obs.: quando uma compra é realizada, algumas informações precisam ser atualizadas (ex.: estoque do produto)
 # ainda não estamos fazendo isso
 
 
 def teste_exemplo():
-    endereco_1 = e.Endereco(rua='XV de Novembro', bairro='Centro',
-                                   cidade='Blumenau', numero='125')
+    endereco_1 = Endereco(rua='XV de Novembro', bairro='Centro',
+                          cidade='Blumenau', numero='125')
 
-    cliente_1 = cli.Cliente(nome='vitor', email='abc@gmail.com',
-                                data_nascimento='23/05/2022', endereco=endereco_1)
+    cliente_1 = Cliente(nome='vitor', email='abc@gmail.com',
+                        data_nascimento='23/05/2022', endereco=endereco_1)
 
-    carrinho_1 = car.Carrinho(valor_total=0.0, cliente=cliente_1)
+    carrinho_1 = Carrinho(valor_total=0.0, cliente=cliente_1)
 
-    produto_1 = prod.Produto(nome='Mouse Gamer Logitech', descricao='mouse gamer com leds rgb',
-                                preco=200.00, peso='80', unidade_de_medida='gramas', estoque=50)
+    produto_1 = Produto(nome='Mouse Gamer Logitech', descricao='mouse gamer com leds rgb',
+                             preco=200.00, peso='80', unidade_de_medida='gramas', estoque=50)
 
-    produto_2 = prod.Produto(nome='MousePad grande', descricao='mousepad que parece um tapete',
-                                preco=150.00, peso='40', unidade_de_medida='gramas', estoque=70)
+    produto_2 = Produto(nome='MousePad grande', descricao='mousepad que parece um tapete',
+                             preco=150.00, peso='40', unidade_de_medida='gramas', estoque=70)
 
-    produto_3 = prod.Produto(nome='Teclado mecânico Razer', descricao='teclado que faz tec tec',
-                                preco=350.00, peso='300', unidade_de_medida='gramas', estoque=30)
+    produto_3 = Produto(nome='Teclado mecânico Razer', descricao='teclado que faz tec tec',
+                             preco=350.00, peso='300', unidade_de_medida='gramas', estoque=30)
 
-    prod_carrinho_1 = prodc.ProdutoCarrinho(
+    prod_carrinho_1 = ProdutoCarrinho(
         quant=1, produto=produto_1, carrinho=carrinho_1)
 
-    prod_carrinho_2 = prodc.ProdutoCarrinho(
+    prod_carrinho_2 = ProdutoCarrinho(
         quant=2, produto=produto_2, carrinho=carrinho_1)
 
-    metodoPagamento_1 = mp.MetodoPagamento(
+    metodoPagamento_1 = MetodoPagamento(
         nome='dinheiro', descricao='dinheiro cash din din')
 
-    venda_1 = v.Venda(data='28/05/2022', carrinho=carrinho_1,
-                          metodoPagamento=metodoPagamento_1)
+    venda_1 = Venda(data='28/05/2022', carrinho=carrinho_1,
+                    metodoPagamento=metodoPagamento_1)
 
     registros = [endereco_1, cliente_1, carrinho_1, produto_1, produto_2,
                  produto_3, prod_carrinho_1, prod_carrinho_2, metodoPagamento_1, venda_1]
@@ -73,7 +66,7 @@ if __name__ == '__main__':
 
     # for r in db.session.query(prod.Produto).all():
     #     print(r)
-    
+
     # for r in db.session.query(prod.Produto).all():
     #     print(r)
 
@@ -82,8 +75,8 @@ if __name__ == '__main__':
 
     # for r in db.session.query(car.Carrinho).all():
     #     print(r)
-    
-    for r in db.session.query(v.Venda).all():
+
+    for r in db.session.query(Venda).all():
         print(r)
 
     # print('='*len(frase_print))
