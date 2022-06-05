@@ -1,5 +1,4 @@
 from config import *
-from usuario import *
 
 
 def criar_tabelas():
