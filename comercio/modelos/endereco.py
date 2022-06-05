@@ -1,9 +1,12 @@
-if __name__ == '__main__':
+# Endereço temporário enquanto não tem do grupo 2
+
+if __name__ == "__main__":
     import os
     import sys
-    currentdir = os.path.dirname(os.path.realpath(__file__))
-    parentdir = os.path.dirname(currentdir)
-    sys.path.append(parentdir)
+    atual = os.path.dirname(os.path.realpath(__file__))
+    pai = os.path.dirname(atual)
+    sys.path.append(pai)
+
 
 from configs.config import *
 
@@ -27,18 +30,14 @@ class Endereco(db.Model):
     '''
 
     id = db.Column(db.Integer, primary_key=True)
-    rua = db.Column(db.String(254))
+    numero = db.Column(db.String(254))
+    logradouro = db.Column(db.String(254))
     bairro = db.Column(db.String(254))
     cidade = db.Column(db.String(254))
-    numero = db.Column(db.String(254))
+    cep = db.Column(db.String(254))
+    estado = db.Column(db.String(254))
+    pais = db.Column(db.String(254))
 
     def __str__(self):
-        return f'{self.rua}, {self.numero} - {self.bairro}, {self.cidade}'
-
-
-if __name__ == '__main__':
-
-    endereco = Endereco(rua='XV de Novembro', bairro='Centro',
-                        cidade='Blumenau', numero='125')
-
-    print(endereco.rua)
+        return f'{self.logradouro}, {self.numero} - {self.bairro} (CEP: {self.cep}), ' +\
+            f'{self.cidade} - {self.estado} - {self.pais}'

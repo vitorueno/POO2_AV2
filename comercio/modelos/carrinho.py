@@ -1,11 +1,13 @@
 if __name__ == "__main__":
     import os
     import sys
-    currentdir = os.path.dirname(os.path.realpath(__file__))
-    parentdir = os.path.dirname(currentdir)
-    sys.path.append(parentdir)
+    atual = os.path.dirname(os.path.realpath(__file__))
+    pai = os.path.dirname(atual)
+    sys.path.append(pai)
 
-from modelos.cliente import Cliente
+
+
+from modelos.usuario import Usuario
 from configs.config import *
 
 
@@ -21,8 +23,8 @@ class Carrinho(db.Model):
     ----------
     id (int):  id numérico (PK)
     valor_total (float): valor total dos produtos que estão no carrinho
-    cliente_id (int): chave estrangeira de cliente (FK)
-    cliente (Cliente): dado do tipo Cliente (relationship)
+    usuario_cpf (int): chave estrangeira de usuario (FK)
+    usuario (Usuario): dado do tipo Usuario (relationship)
 
     Metodos
     -------
@@ -31,15 +33,14 @@ class Carrinho(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     valor_total = db.Column(db.Float)
 
-    cliente_id = db.Column(
-        db.Integer, db.ForeignKey(Cliente.id), nullable=False)
-    cliente = db.relationship("Cliente")
-
+    usuario_cpf = db.Column(
+        db.String, db.ForeignKey(Usuario.cpf), nullable=False)
+    usuario = db.relationship("Usuario")
 
     def __str__(self):
         return f''' 
-            Cliente: [
-                {str(self.cliente)}
+            Usuario: [
+                {str(self.usuario)}
             ]
             Valor Total: R$ {self.valor_total:.2f}
         '''

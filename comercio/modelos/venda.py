@@ -44,20 +44,20 @@ class Venda(db.Model):
         db.Integer, db.ForeignKey(MetodoPagamento.id), nullable=False)
     metodoPagamento = db.relationship("MetodoPagamento")
 
-
     def __str__(self):
-        itens = db.session.query(ProdutoCarrinho).filter_by(carrinho_id = self.carrinho.id)
+        itens = db.session.query(ProdutoCarrinho).filter_by(
+            carrinho_id=self.carrinho.id)
 
-        retorno =  f''' 
+        retorno = f''' 
             Data da compra: {self.data}
-            Cliente <
-                {str(self.carrinho.cliente)}
+            Usuario <
+                {str(self.carrinho.usuario)}
             >
 
-            Itens [ ''' 
+            Itens [ '''
 
-        for i in itens:  
-            retorno += str(i) 
+        for i in itens:
+            retorno += str(i)
 
         retorno += f'''
             ]
@@ -65,7 +65,3 @@ class Venda(db.Model):
             Valor Total: {self.carrinho.valor_total}
             '''
         return retorno
-
-        
-            
-        
