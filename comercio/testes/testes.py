@@ -46,7 +46,7 @@ def teste_exemplo():
     metodoPagamento_1 = MetodoPagamento(
         nome='dinheiro', descricao='dinheiro cash din din')
 
-    venda_1 = Venda(data='28/05/2022', carrinho=carrinho_1,
+    venda_1 = Venda(data=date(2022, 5, 28), carrinho=carrinho_1,
                     metodoPagamento=metodoPagamento_1)
 
     registros = [endereco_1, cliente_1, carrinho_1, produto_1, produto_2,

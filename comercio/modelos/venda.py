@@ -34,7 +34,7 @@ class Venda(db.Model):
     '''
 
     id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(254))
+    data = db.Column(db.Date(), nullable=False)
 
     carrinho_id = db.Column(
         db.Integer, db.ForeignKey(Carrinho.id), nullable=False)
