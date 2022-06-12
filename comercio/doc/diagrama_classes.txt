@@ -2,20 +2,30 @@
 
 title Diagrama - E-comerce
 
-class Cliente {
-  id: int
+
+class Pessoa {
+  cpf: str
   nome: str
-  email: str
   data_nascimento: date
-  Endereco: Endereco
+  endereco: Endereco
+}
+
+class Usuario {
+  login: str 
+  email: str
+  telefone: str
+  senha: str
 }
 
 class Endereco {
   id: int
-  rua: str
+  numero: str
+  logradouro: str
   bairro: str
   cidade: str
-  numero: str
+  cep: str
+  estado: str
+  pais: str
 }
 
 
@@ -46,7 +56,7 @@ class MetodoPagamento {
 
 class Carrinho {
   id: int 
-  cliente: Cliente
+  usuario: Usuario
   valor_total: float
   
 }
@@ -57,15 +67,51 @@ class Venda {
   data: dateTime
   carrinho: Carrinho
   metodo_pagamento: MetodoPagamento
+  vendedor: Colaborador
+  transportador: Transportador
+}
+
+class Fornecedor {
+  cnpj: str
+  nome: str 
+  endereco: Endereco
+}
+
+class FornecedorProduto {
+  id: int
+  fornecedor: Fornecedor
+  produto: Produto
+  quantidade: int
+}
+
+class Transportador {
+  id: int
+  nome: str 
+}
+
+class Colaborador {
+  salario: float
+  turno: string
 }
 
 
-Cliente *-- Endereco
-Produto *-- ProdutoCarrinho
-Carrinho --* Cliente
-Venda --* Carrinho
-Carrinho *-- ProdutoCarrinho
-Venda --* MetodoPagamento
 
+Pessoa <|- Usuario
+Pessoa <|- Colaborador
+
+Usuario *-- Endereco
+Carrinho *-- Usuario
+Venda *-- Carrinho
+Carrinho --* ProdutoCarrinho
+Produto --* ProdutoCarrinho
+Venda *-- MetodoPagamento
+Venda *-- Transportador
+
+Fornecedor -* FornecedorProduto
+Produto -* FornecedorProduto
+
+Colaborador -o Venda
+
+Endereco -* Fornecedor
 
 @enduml

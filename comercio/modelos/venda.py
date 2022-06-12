@@ -1,16 +1,10 @@
-if __name__ == "__main__":
-    import os
-    import sys
-    currentdir = os.path.dirname(os.path.realpath(__file__))
-    parentdir = os.path.dirname(currentdir)
-    sys.path.append(parentdir)
-
+from modelos.transportador import Transportador
 from modelos.carrinho import Carrinho
 from modelos.metodoPagamento import MetodoPagamento
 from modelos.produtoCarrinho import ProdutoCarrinho
+from modelos.colaborador import Colaborador
 
-from configs.config import *
-
+from .config import *
 
 class Venda(db.Model):
     '''
@@ -44,6 +38,14 @@ class Venda(db.Model):
         db.Integer, db.ForeignKey(MetodoPagamento.id), nullable=False)
     metodoPagamento = db.relationship("MetodoPagamento")
 
+    colaborador_cpf = db.Column(
+        db.String(11), db.ForeignKey(Colaborador.cpf), nullable=True)
+    colaborador = db.relationship("Colaborador")
+
+    
+    transportador_id = db.Column( db.Integer, db.ForeignKey(Transportador.id), nullable=False)
+    transportador = db.relationship("Transportador")
+
     def __str__(self):
         itens = db.session.query(ProdutoCarrinho).filter_by(
             carrinho_id=self.carrinho.id)
@@ -63,5 +65,10 @@ class Venda(db.Model):
             ]
 
             Valor Total: {self.carrinho.valor_total}
+             {self.transportador}
+            '''
+        if self.colaborador:
+            retorno += f'''
+            Vendedor: {self.colaborador}
             '''
         return retorno

@@ -1,14 +1,8 @@
-if __name__ == "__main__":
-    import os
-    import sys
-    atual = os.path.dirname(os.path.realpath(__file__))
-    pai = os.path.dirname(atual)
-    sys.path.append(pai)
 
-
+from .config import *
 
 from modelos.usuario import Usuario
-from configs.config import *
+
 
 
 class Carrinho(db.Model):
