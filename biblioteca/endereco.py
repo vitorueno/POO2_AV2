@@ -1,4 +1,7 @@
-# Endereço temporário enquanto não tem do grupo 2
+''' 
+classe Endereco criada pelo grupo 2 com algumas modificações
+autores: Halena Kulmann Duarte e Luana Alves Pinto
+'''
 
 from .config import *
 
