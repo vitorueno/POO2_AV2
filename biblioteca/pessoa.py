@@ -3,9 +3,9 @@ classe Pessoa criada pelo grupo 1 com algumas modificações
 autores: Gustavo Lofrese Carvalho e Eduardo Meneghim Alves Silva
 '''
 
-from config import *
+from .config import *
 
-from endereco import Endereco
+from .endereco import Endereco
 
 
 class Pessoa(db.Model):

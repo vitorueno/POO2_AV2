@@ -2,9 +2,9 @@
 Autores: Vítor Augusto Ueno Otto e Leonardo de Souza Fiamoncini
 '''
 
-from config import *
+from .config import *
 
-from pessoa import Pessoa
+from .pessoa import Pessoa
 
 
 class Usuario(Pessoa):

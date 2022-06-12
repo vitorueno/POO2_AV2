@@ -1,6 +1,6 @@
 # Endereço temporário enquanto não tem do grupo 2
 
-from config import *
+from .config import *
 
 
 class Endereco(db.Model):
