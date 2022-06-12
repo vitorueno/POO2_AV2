@@ -6,3 +6,9 @@ env/
 .env/
 venv/
 .venv/
+
+# estes arquivos serão fornecidos pela biblioteca rodando o build.sh
+comercio/modelos/endereco.py 
+comercio/modelos/pessoa.py 
+comercio/modelos/usuario.py
+comercio/modelos/colaborador.py
