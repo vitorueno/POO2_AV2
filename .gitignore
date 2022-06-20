@@ -12,3 +12,5 @@ comercio/modelos/endereco.py
 comercio/modelos/pessoa.py 
 comercio/modelos/usuario.py
 comercio/modelos/colaborador.py
+
+.pytest_cache/
