@@ -6,6 +6,7 @@ from modelos.colaborador import Colaborador
 
 from .config import *
 
+
 class Venda(db.Model):
     '''
     Uma classe que representa uma venda no e-comerce. 
@@ -42,33 +43,25 @@ class Venda(db.Model):
         db.String(11), db.ForeignKey(Colaborador.cpf), nullable=True)
     colaborador = db.relationship("Colaborador")
 
-    
-    transportador_id = db.Column( db.Integer, db.ForeignKey(Transportador.id), nullable=False)
+    transportador_id = db.Column(
+        db.Integer, db.ForeignKey(Transportador.id), nullable=False)
     transportador = db.relationship("Transportador")
 
     def __str__(self):
         itens = db.session.query(ProdutoCarrinho).filter_by(
             carrinho_id=self.carrinho.id)
 
-        retorno = f''' 
-            Data da compra: {self.data}
-            Usuario <
-                {str(self.carrinho.usuario)}
-            >
-
-            Itens [ '''
-
+        retorno = f'Data da Compra: {self.data}\n'
+        retorno += f'Usuário: {self.carrinho.usuario}\n'
+        retorno += '='*50
+        retorno += f'\nitens:\n'
+        retorno += '='*50
         for i in itens:
-            retorno += str(i)
+            retorno += '\n' + str(i) + '\n'
+        retorno += '='*50
+        retorno += f'\nValor total: {self.carrinho.valor_total}\n'
 
-        retorno += f'''
-            ]
-
-            Valor Total: {self.carrinho.valor_total}
-             {self.transportador}
-            '''
         if self.colaborador:
-            retorno += f'''
-            Vendedor: {self.colaborador}
-            '''
+            retorno += f'\nVendedor: {self.colaborador}\n'
+
         return retorno

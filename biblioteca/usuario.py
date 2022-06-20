@@ -41,5 +41,4 @@ class Usuario(Pessoa):
     }
 
     def __str__(self):
-        return super().__str__() + f'\nLogin: {self.login} - ' +\
-            f'Email: {self.email} - Telefone: {self.telefone}'
+        return super().__str__() + f'\nLogin: {self.login} - Email: {self.email} - Telefone: {self.telefone}'

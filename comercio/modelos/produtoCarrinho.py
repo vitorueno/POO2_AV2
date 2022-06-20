@@ -6,7 +6,6 @@ from modelos.produto import Produto
 from modelos.carrinho import Carrinho
 
 
-
 class ProdutoCarrinho(db.Model):
     '''
     Uma classe que representa a relação entre carrinho e os produtos.
@@ -39,7 +38,4 @@ class ProdutoCarrinho(db.Model):
     carrinho = db.relationship("Carrinho")
 
     def __str__(self):
-        return f'''
-            {str(self.produto)}
-            Quantidade: {self.quant}
-        '''
+        return f'{str(self.produto)} Quantidade: {self.quant}'
