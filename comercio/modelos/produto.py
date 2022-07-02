@@ -34,3 +34,14 @@ class Produto(db.Model):
 
     def __str__(self):
         return f'Nome do produto: {self.nome} Descrição: {self.descricao} Preço: R$ {self.preco: .2f} Peso: {self.peso} {self.unidade_de_medida} Estoque: {self.estoque}'
+
+    def tamanho(self):
+        total = getsizeof(self.id)
+        total += getsizeof(self.nome)
+        total += getsizeof(self.descricao)
+        total += getsizeof(self.preco)
+        total += getsizeof(self.peso)
+        total += getsizeof(self.unidade_de_medida)
+        total += getsizeof(self.estoque)
+
+        return total

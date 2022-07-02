@@ -1,6 +1,7 @@
 from .config import *
 from .endereco import Endereco
 
+
 class Fornecedor(db.Model):
     '''
     Uma classe que representa o fornecedor no e-comerce.
@@ -20,4 +21,12 @@ class Fornecedor(db.Model):
 
     def __str__(self):
         return f'Fornecedor: {self.nome} ({self.cnpj})' +\
-                f'{str(self.endereco)}'
+            f'{str(self.endereco)}'
+
+    def tamanho(self):
+        total = getsizeof(self.cnpj)
+        total += getsizeof(self.nome)
+        total += getsizeof(self.endereco_id)
+        total += self.endereco.tamanho()
+
+        return total

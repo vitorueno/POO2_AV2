@@ -4,7 +4,6 @@ from .config import *
 from modelos.usuario import Usuario
 
 
-
 class Carrinho(db.Model):
     '''
     Uma classe que representa um Carrinho. 
@@ -38,3 +37,11 @@ class Carrinho(db.Model):
             ]
             Valor Total: R$ {self.valor_total:.2f}
         '''
+
+    def tamanho(self):
+        total = getsizeof(self.id)
+        total += getsizeof(self.valor_total)
+        total += getsizeof(self.usuario_cpf)
+        total += self.usuario.tamanho()
+
+        return total

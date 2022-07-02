@@ -2,6 +2,7 @@
 
 from .config import *
 
+
 class MetodoPagamento(db.Model):
     '''
     Uma classe que representa um método de pagamento (cartão, dinheiro...).
@@ -24,3 +25,10 @@ class MetodoPagamento(db.Model):
 
     def __str__(self):
         return f'Método de Pagamento: {self.nome} - {self.descricao}'
+
+    def tamanho(self):
+        total = getsizeof(self.id)
+        total += getsizeof(self.nome)
+        total += getsizeof(self.descricao)
+
+        return total

@@ -35,3 +35,10 @@ class Colaborador(Pessoa):
 
     def __str__(self):
         return super().__str__() + f' - Turno {self.turno} - salario: {self.salario}'
+
+    def tamanho(self):
+        total = getsizeof(self.salario)
+        total += getsizeof(self.turno)
+        total += super().tamanho()
+
+        return total

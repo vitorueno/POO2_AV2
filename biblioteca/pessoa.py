@@ -40,3 +40,12 @@ class Pessoa(db.Model):
     def __str__(self):
         return f'{self.nome} (CPF: {self.cpf}) - data nascimento: {self.data_nascimento}' +\
             f'\nEndereço: {str(self.endereco)}'
+
+    def tamanho(self):
+        total = getsizeof(self.cpf)
+        total += getsizeof(self.nome)
+        total += getsizeof(self.data_nascimento)
+        total += getsizeof(self.endereco_id)
+        total += self.endereco.tamanho()
+
+        return total

@@ -36,3 +36,14 @@ class Endereco(db.Model):
     def __str__(self):
         return f'{self.logradouro}, {self.numero} - {self.bairro} (CEP: {self.cep}), ' +\
             f'{self.cidade} - {self.estado} - {self.pais}'
+
+    def tamanho(self):
+        total = getsizeof(self.id)
+        total += getsizeof(self.numero)
+        total += getsizeof(self.logradouro)
+        total += getsizeof(self.bairro)
+        total += getsizeof(self.cidade)
+        total += getsizeof(self.cep)
+        total += getsizeof(self.estado)
+        total += getsizeof(self.pais)
+        return total

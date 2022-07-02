@@ -42,3 +42,12 @@ class Usuario(Pessoa):
 
     def __str__(self):
         return super().__str__() + f'\nLogin: {self.login} - Email: {self.email} - Telefone: {self.telefone}'
+
+    def tamanho(self):
+        total = getsizeof(self.login)
+        total += getsizeof(self.email)
+        total += getsizeof(self.telefone)
+        total += getsizeof(self.senha)
+        total += super().tamanho()
+
+        return total

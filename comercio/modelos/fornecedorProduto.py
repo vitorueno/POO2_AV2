@@ -26,9 +26,20 @@ class FornecedorProduto(db.Model):
         db.Integer, db.ForeignKey(Produto.id), nullable=False)
     produto = db.relationship("Produto")
 
-    fornecedor_cnpj = db.Column(db.String(11), db.ForeignKey(Fornecedor.cnpj), nullable=False)
+    fornecedor_cnpj = db.Column(
+        db.String(11), db.ForeignKey(Fornecedor.cnpj), nullable=False)
     fornecedor = db.relationship("Fornecedor")
 
     def __str__(self):
         return f'Produto: {str(self.produto)}\n{str(self.fornecedor)}\nQuantidade: {self.quant}'
-        
+
+    def tamanho(self):
+        total = getsizeof(self.id)
+        total += getsizeof(self.quant)
+        total += getsizeof(self.produto_id)
+        total += self.produto.tamanho()
+        total += getsizeof(self.fornecedor_cnpj)
+
+        total += self.fornecedor.tamanho()
+
+        return total

@@ -16,3 +16,9 @@ class Transportador(db.Model):
 
     def __str__(self):
         return f'transportador: {self.nome}'
+
+    def tamanho(self):
+        total = getsizeof(self.id)
+        total += getsizeof(self.nome)
+
+        return total
