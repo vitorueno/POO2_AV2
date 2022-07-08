@@ -1,15 +1,76 @@
-i = 10
-Tamanho dos dados: 2040 bytes; Tamanho da lista: 216 bytes; Tamanho lista + dados: 2256 bytes
-Tamanho do arquivo do banco de dados: 86016 bytes
+======================4096 elementos====================== 
 
-i = 100
-Tamanho dos dados: 20400 bytes; Tamanho da lista: 976 bytes; Tamanho lista + dados: 21376 bytes
-Tamanho do arquivo do banco de dados: 86016 bytes
+Quantidade de elementos = 4
+Cadastrou de fato 4 elementos?  Sim
+Tamanho dos dados: 816 bytes; Tamanho da lista: 152 bytes; Tamanho lista + dados: 968 bytes
+Tamanho do arquivo do banco de dados: 69632 bytes
 
-i = 1000
-Tamanho dos dados: 204000 bytes; Tamanho da lista: 8536 bytes; Tamanho lista + dados: 212536 bytes
+Quantidade de elementos = 16
+Cadastrou de fato 16 elementos?  Sim
+Tamanho dos dados: 3264 bytes; Tamanho da lista: 288 bytes; Tamanho lista + dados: 3552 bytes
+Tamanho do arquivo do banco de dados: 69632 bytes
+
+Quantidade de elementos = 64
+Cadastrou de fato 64 elementos?  Sim
+Tamanho dos dados: 13056 bytes; Tamanho da lista: 688 bytes; Tamanho lista + dados: 13744 bytes
+Tamanho do arquivo do banco de dados: 69632 bytes
+
+Quantidade de elementos = 256
+Cadastrou de fato 256 elementos?  Sim
+Tamanho dos dados: 52224 bytes; Tamanho da lista: 2368 bytes; Tamanho lista + dados: 54592 bytes
+Tamanho do arquivo do banco de dados: 81920 bytes
+
+Quantidade de elementos = 1024
+Cadastrou de fato 1024 elementos?  Sim
+Tamanho dos dados: 208896 bytes; Tamanho da lista: 8536 bytes; Tamanho lista + dados: 217432 bytes
 Tamanho do arquivo do banco de dados: 106496 bytes
 
-i = 10000
-Tamanho dos dados: 2040000 bytes; Tamanho da lista: 83104 bytes; Tamanho lista + dados: 2123104 bytes
-Tamanho do arquivo do banco de dados: 405504 bytes
+Quantidade de elementos = 4096
+Cadastrou de fato 4096 elementos?  Sim
+Tamanho dos dados: 835584 bytes; Tamanho da lista: 36232 bytes; Tamanho lista + dados: 871816 bytes
+Tamanho do arquivo do banco de dados: 208896 bytes
+
+[4, 16, 64, 256, 1024, 4096]
+[69632, 69632, 69632, 81920, 106496, 208896]
+[816, 3264, 13056, 52224, 208896, 835584]
+
+======================16384 elementos====================== 
+
+Quantidade de elementos = 4
+Cadastrou de fato 4 elementos?  Sim
+Tamanho dos dados: 816 bytes; Tamanho da lista: 152 bytes; Tamanho lista + dados: 968 bytes
+Tamanho do arquivo do banco de dados: 69632 bytes
+
+Quantidade de elementos = 16
+Cadastrou de fato 16 elementos?  Sim
+Tamanho dos dados: 3264 bytes; Tamanho da lista: 288 bytes; Tamanho lista + dados: 3552 bytes
+Tamanho do arquivo do banco de dados: 69632 bytes
+
+Quantidade de elementos = 64
+Cadastrou de fato 64 elementos?  Sim
+Tamanho dos dados: 13056 bytes; Tamanho da lista: 688 bytes; Tamanho lista + dados: 13744 bytes
+Tamanho do arquivo do banco de dados: 69632 bytes
+
+Quantidade de elementos = 256
+Cadastrou de fato 256 elementos?  Sim
+Tamanho dos dados: 52224 bytes; Tamanho da lista: 2368 bytes; Tamanho lista + dados: 54592 bytes
+Tamanho do arquivo do banco de dados: 81920 bytes
+
+Quantidade de elementos = 1024
+Cadastrou de fato 1024 elementos?  Sim
+Tamanho dos dados: 208896 bytes; Tamanho da lista: 8536 bytes; Tamanho lista + dados: 217432 bytes
+Tamanho do arquivo do banco de dados: 106496 bytes
+
+Quantidade de elementos = 4096
+Cadastrou de fato 4096 elementos?  Sim
+Tamanho dos dados: 835584 bytes; Tamanho da lista: 36232 bytes; Tamanho lista + dados: 871816 bytes
+Tamanho do arquivo do banco de dados: 208896 bytes
+
+Quantidade de elementos = 16384
+Cadastrou de fato 16384 elementos?  Sim
+Tamanho dos dados: 3342336 bytes; Tamanho da lista: 133336 bytes; Tamanho lista + dados: 3475672 bytes
+Tamanho do arquivo do banco de dados: 618496 bytes
+
+[4, 16, 64, 256, 1024, 4096, 16384]
+[69632, 69632, 69632, 81920, 106496, 208896, 618496]
+[816, 3264, 13056, 52224, 208896, 835584, 3342336]

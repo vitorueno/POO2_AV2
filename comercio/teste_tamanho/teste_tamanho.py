@@ -6,9 +6,7 @@ if __name__ == "__main__":
     sys.path.append(pai)
 
 
-from math import log
 
-from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 from modelos import Endereco, Usuario, Colaborador, Carrinho, Transportador, Fornecedor
@@ -29,9 +27,10 @@ def clear_data(session):
 def comparar_memoria_com_bd():
     criar_tabelas()
     base = 4
-    n = 6
+    n = 7
     lista_tam_memoria = []
     lista_tam_bd = []
+    lista_tam_lista = []
     for expoente in range(1, n+1):
         # deletar dados anteriores:
         clear_data(db.session)
@@ -88,13 +87,18 @@ def comparar_memoria_com_bd():
             db.session.add(venda)
             db.session.commit()
 
+        
+
         tam_bd = os.path.getsize(arquivobd)
 
         lista_tam_bd.append(tam_bd)
         tam_memoria = (base**expoente * venda.tamanho())  # + tam_mem_fixo
         lista_tam_memoria.append(tam_memoria)
         tam_lista = getsizeof(registros)
+        lista_tam_lista.append(tam_lista)
         print(f'Quantidade de elementos = {base** expoente}')
+        rows = db.session.query(Venda).count()
+        print(f'Cadastrou de fato {base**expoente} elementos? ', 'Sim' if rows == base**expoente else 'Não')
         print(
             f'Tamanho dos dados: {tam_memoria} bytes; ' +
             f'Tamanho da lista: {tam_lista} bytes; ' +
@@ -105,9 +109,10 @@ def comparar_memoria_com_bd():
 
     y1 = np.array(lista_tam_bd)
     y2 = np.array(lista_tam_memoria)
-    x = np.array([base**x for x in range(1, n+1)])
+    x_base = [base**x for x in range(1, n+1)]
+    x = np.array(x_base)
 
-    print([base**x for x in range(1, n+1)])
+    print(x_base)
     print(lista_tam_bd)
     print(lista_tam_memoria)
 
@@ -115,18 +120,15 @@ def comparar_memoria_com_bd():
     plt.xlabel("Número de registros")
     plt.ylabel("Tamanho em bytes")
 
-    # y3 = np.array(lista_tam_lista)
-    # y4 = np.array(lista_tam_dados_com_lista)
+    y3 = np.array(lista_tam_lista)
+    
 
     plt.grid()
     plt.plot(x, y1, label='tamanho do arquivo do BD')
     plt.plot(x, y2, label='tamanho dos dados em memória')
-    # plt.plot(xpoints, y3, label='tamanho da lista')
-    # plt.plot(xpoints, y4, label='tamanho dos dados em memória + lista')
-
+    plt.plot(x, y3, label='tamanho da lista')
+    
     plt.legend()
-
-    plt.xticks([base**x for x in range(1, n+1)])
 
     plt.show()
 
