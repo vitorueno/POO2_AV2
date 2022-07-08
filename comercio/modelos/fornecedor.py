@@ -27,6 +27,6 @@ class Fornecedor(db.Model):
         total = getsizeof(self.cnpj)
         total += getsizeof(self.nome)
         total += getsizeof(self.endereco_id)
-        total += self.endereco.tamanho()
+        # total += self.endereco.tamanho()
 
         return total

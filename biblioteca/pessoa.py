@@ -46,6 +46,6 @@ class Pessoa(db.Model):
         total += getsizeof(self.nome)
         total += getsizeof(self.data_nascimento)
         total += getsizeof(self.endereco_id)
-        total += self.endereco.tamanho()
+        # total += self.endereco.tamanho()
 
         return total

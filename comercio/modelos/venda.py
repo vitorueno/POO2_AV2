@@ -70,12 +70,12 @@ class Venda(db.Model):
         total = getsizeof(self.id)
         total += getsizeof(self.data)
         total += getsizeof(self.carrinho_id)
-        total += self.carrinho.tamanho()
+        # total += self.carrinho.tamanho()
         total += getsizeof(self.metodoPagamento_id)
-        total += self.metodoPagamento.tamanho()
+        # total += self.metodoPagamento.tamanho()
         total += getsizeof(self.colaborador_cpf)
-        total += self.colaborador.tamanho()
+        # total += self.colaborador.tamanho()
         total += getsizeof(self.transportador_id)
-        total += self.transportador.tamanho()
+        # total += self.transportador.tamanho()
 
         return total

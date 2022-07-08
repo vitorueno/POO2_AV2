@@ -1,0 +1,15 @@
+i = 10
+Tamanho dos dados: 2040 bytes; Tamanho da lista: 216 bytes; Tamanho lista + dados: 2256 bytes
+Tamanho do arquivo do banco de dados: 86016 bytes
+
+i = 100
+Tamanho dos dados: 20400 bytes; Tamanho da lista: 976 bytes; Tamanho lista + dados: 21376 bytes
+Tamanho do arquivo do banco de dados: 86016 bytes
+
+i = 1000
+Tamanho dos dados: 204000 bytes; Tamanho da lista: 8536 bytes; Tamanho lista + dados: 212536 bytes
+Tamanho do arquivo do banco de dados: 106496 bytes
+
+i = 10000
+Tamanho dos dados: 2040000 bytes; Tamanho da lista: 83104 bytes; Tamanho lista + dados: 2123104 bytes
+Tamanho do arquivo do banco de dados: 405504 bytes

@@ -44,8 +44,8 @@ class ProdutoCarrinho(db.Model):
         total = getsizeof(self.id)
         total += getsizeof(self.quant)
         total += getsizeof(self.produto_id)
-        total += self.produto.tamanho()
+        # total += self.produto.tamanho()
         total += getsizeof(self.carrinho_id)
-        total += self.carrinho.tamanho()
+        # total += self.carrinho.tamanho()
 
         return total
